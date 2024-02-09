@@ -1,1 +1,1 @@
-# Multi-Vendor Ecommerce Project - API Documentation
+# SuperMarketDashboard Project - API's Only

@@ -5,10 +5,12 @@
 **URL**: /auth/register <br>
 **Method**: POST <br>
 **Description**: Register a new user. <br>
-#### Request Body:
-**name**: User's name <br>
-**email**: User's email <br>
-**password**: User's password <br>
+**Request Body:** <br>
+**name**: name <br>
+**email**: email <br>
+**password**: password <br>
+**Confirm Password**: password_confirmation <br>
+
 **Response**: Returns a success message if registration is successful. <br>
 ### Login
 **URL**: /auth/login <br>

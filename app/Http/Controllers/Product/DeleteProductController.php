@@ -27,8 +27,8 @@ class DeleteProductController extends Controller
 
         $product->delete();
 
-        $authUser = auth()->user();
-        $user = User::find($authUser->id);
+        $user = auth()->user();
+
 
         if ($product) {
             activity()

@@ -26,8 +26,8 @@ class EditAvailablePicesController extends Controller
         
         $product->save();
 
-        $authUser = auth()->user();
-        $user = User::find($authUser->id);
+        $user = auth()->user();
+
 
         if ($product) {
             activity()

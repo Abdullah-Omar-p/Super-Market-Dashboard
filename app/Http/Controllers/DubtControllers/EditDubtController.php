@@ -26,8 +26,8 @@ class EditDubtController extends Controller
             // Update the debt record
             $debt->update($validatedData);
             
-            $authUser = auth()->user();
-            $user = User::find($authUser->id);
+            $user = auth()->user();
+
 
                 if ($debt) {
                     activity()

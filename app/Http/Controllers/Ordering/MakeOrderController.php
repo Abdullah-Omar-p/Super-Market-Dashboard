@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Ordering;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 use App\Models\{Order, Product};
 
 class MakeOrderController extends Controller
@@ -30,7 +29,7 @@ class MakeOrderController extends Controller
     
             // dont forget to calculate total price ..
             $productsIds = [];
-            $productsIds = $request->products_ids;
+            $productsIds = $request->product_ids;
 
             foreach ($productsIds as $products_ids) {
                 $product = Product::find($products_ids);
@@ -47,8 +46,8 @@ class MakeOrderController extends Controller
             $order->no_products = $no_products;
             $order->save();
 
-            $authUser = auth()->user();
-            $user = User::find($authUser->id);
+            
+            $user = auth()->user();
 
             if ($order) {
                 activity()

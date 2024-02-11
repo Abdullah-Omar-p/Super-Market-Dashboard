@@ -22,8 +22,8 @@ class AddLiabilityController extends Controller
 
             $debt = Debt::create($validatedData);
 
-            $authUser = auth()->user();
-            $user = User::find($authUser->id);
+            $user = auth()->user();
+
 
                 if ($product) {
                     activity()

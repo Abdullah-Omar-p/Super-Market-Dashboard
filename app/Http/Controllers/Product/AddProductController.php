@@ -35,8 +35,7 @@ class AddProductController extends Controller
         // Save the product to the database
         $product->save();
 
-        $authUser = auth()->user();
-        $user = User::find($authUser->id);
+        $user = auth()->user();
 
         if ($product) {
             activity()

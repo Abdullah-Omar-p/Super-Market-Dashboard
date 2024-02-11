@@ -40,8 +40,8 @@ class UpdateProductController extends Controller
             return response()->json(['message' => 'مشكلة اثناء تحديث المنتج, حاول لاحقا']);
         }
 
-        $authUser = auth()->user();
-        $user = User::find($authUser->id);
+        $user = auth()->user();
+
 
         if ($product) {
             activity()

@@ -1,1 +1,1 @@
-# SuperMarketDashboard Project - API's Only, Laravel
+# SuperMarketDashboard Project - API Documentation 

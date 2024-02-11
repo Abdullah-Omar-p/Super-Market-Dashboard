@@ -9,13 +9,14 @@ use Spatie\Activitylog\LogOptions;
 
 class Product extends Model
 {
-    use HasFactory;
+    use HasFactory, LogsActivity;
 
     protected $fillable = [
         'id',
         'name',
         'barcode',
         'description',
+        'available_pices',
         'price',
     ];
     
@@ -23,7 +24,7 @@ class Product extends Model
     {
         return LogOptions::defaults([]);
     }
-    
+
     public function orders()
     {
         return $this->belongsToMany(Order::class, 'order_product');

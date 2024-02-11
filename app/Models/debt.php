@@ -9,12 +9,14 @@ use Spatie\Activitylog\LogOptions;
 
 class debt extends Model
 {
-    use HasFactory;
+    use HasFactory, LogsActivity;
 
     protected $fillable = [
         'id',
-        'no_products',
-        'total_price',
+        'liability',
+        'status', // .. if = 1 it then it your money ليك, if = 0 money you should give to some one عليك..
+        'name',
+        'phone',
     ];
     
     public function getActivitylogOptions(): LogOptions

@@ -10,7 +10,7 @@ return new class extends Migration
     {
         Schema::create('debts', function (Blueprint $table) {
             $table->id();
-            $table->tinyInteger('status');
+            $table->tinyInteger('status'); // .. if = 1 it then it your money ليك, if = 0 money you should give to some one عليك..
             $table->string('name');
             $table->integer('liability');
             $table->string('phone');

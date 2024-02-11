@@ -9,7 +9,7 @@ use Spatie\Activitylog\LogOptions;
 
 class Order extends Model
 {
-    use HasFactory;
+    use HasFactory, LogsActivity;
 
     protected $fillable = [
         'id',

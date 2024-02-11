@@ -13,6 +13,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('barcode')->unique(); // Column for storing barcode, unique constraint
             $table->text('description')->nullable();
+            $table->integer('available_pices')->nullable();
             $table->integer('price');
             $table->timestamps();
         });

@@ -2,34 +2,34 @@
 
 ## Authentication Endpoints
 ### Register a New User
-**URL**: /auth/register
-**Method**: POST
-**Description**: Register a new user.
+**URL**: /auth/register <br>
+**Method**: POST <br>
+**Description**: Register a new user. <br>
 #### Request Body:
-**name**: User's name
-**email**: User's email
-**password**: User's password
-**Response**: Returns a success message if registration is successful.
+**name**: User's name <br>
+**email**: User's email <br>
+**password**: User's password <br>
+**Response**: Returns a success message if registration is successful. <br>
 ### Login
-**URL**: /auth/login
-**Method**: POST
-**Description**: Authenticate a user and generate an access token.
+**URL**: /auth/login <br>
+**Method**: POST <br>
+**Description**: Authenticate a user and generate an access token. <br>
 #### Request Body:
-**email**: User's email
-**password**: User's password
-**Response**: Returns an access token if authentication is successful.
+**email**: User's email <br>
+**password**: User's password <br>
+**Response**: Returns an access token if authentication is successful. <br>
 ### Logout
-URL: /auth/logout
-Method: POST
-Description: Logout the currently authenticated user.
-Authorization Header: Bearer token
-Response: Returns a success message upon successful logout.
+URL: /auth/logout <br>
+Method: POST <br>
+Description: Logout the currently authenticated user. <br>
+Authorization Header: Bearer token <br>
+Response: Returns a success message upon successful logout. <br>
 
 ## Product Endpoints
-Add Product
-URL: /product/add
-Method: POST
-Description: Add a new product to the system.
+Add Product <br>
+URL: /product/add <br>
+Method: POST <br>
+Description: Add a new product to the system. <br>
 Request Body:
 Product details (name, barcode, description, price, etc.)
 Authorization Header: Bearer token

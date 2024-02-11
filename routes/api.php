@@ -42,9 +42,11 @@ Route::middleware([AuthenticatedUser::class])->group(function () {
         Route::get('/for-others/{status?}', 'GetDubtController@index')->where('status', 0);
     });
     Route::prefix('order')->namespace('App\Http\Controllers\Ordering')->group(function () {
-        Route::get('/', 'MakeOrderController@index');
+        Route::post('/', 'MakeOrderController@index');
     });
     Route::prefix('statistics')->namespace('App\Http\Controllers\Statistics')->group(function () {
-        Route::get('/', 'StatisticsController@index');
+        Route::get('/daily', 'StatisticsController@getDailyStats');
+        Route::get('/weekly', 'StatisticsController@getWeeklyStats');
+        Route::get('/monthly', 'StatisticsController@getMonthlyStats');
     });
 });

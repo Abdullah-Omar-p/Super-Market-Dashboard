@@ -12,7 +12,7 @@ class ActivitiesController extends Controller
     public function index()
     {
         try {
-            $activities = Activity::paginate(10);
+            $activities = Activity::orderBy('created_at', 'desc')->paginate(10);
     
             $activities->appends($request->query());
     

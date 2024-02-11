@@ -29,7 +29,7 @@ class EditDubtController extends Controller
             $authUser = auth()->user();
             $user = User::find($authUser->id);
 
-                if ($product) {
+                if ($debt) {
                     activity()
                     ->causedBy($user)
                     ->performedOn($debt)

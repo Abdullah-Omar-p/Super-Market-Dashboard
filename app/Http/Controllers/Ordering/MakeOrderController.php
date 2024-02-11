@@ -47,6 +47,16 @@ class MakeOrderController extends Controller
             $order->no_products = $no_products;
             $order->save();
 
+            $authUser = auth()->user();
+            $user = User::find($authUser->id);
+
+            if ($order) {
+                activity()
+                ->causedBy($user)
+                ->performedOn($order)
+                ->log('تم عمل طلب');
+            }
+
             // .. This To Fill Pivot 'order_product' Table By Records Of Added Products To Order ..
             $order->products()->attach($validatedData['product_ids']);
 

@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Product;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Http\Models\Product;
+use App\Models\Product;
 use App\Http\Middleware\AuthenticatedUser;
 
 class WarningsController extends Controller

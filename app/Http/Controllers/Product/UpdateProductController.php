@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Product;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Http\Models\{Product, User};
+use App\Models\{Product, User};
 use App\Http\Middleware\AuthenticatedUser;
 
 class UpdateProductController extends Controller
@@ -36,6 +36,10 @@ class UpdateProductController extends Controller
 
         $product->save();
 
+        if (!$product) {
+            return response()->json(['message' => 'مشكلة اثناء تحديث المنتج, حاول لاحقا']);
+        }
+
         $authUser = auth()->user();
         $user = User::find($authUser->id);
 
@@ -43,9 +47,9 @@ class UpdateProductController extends Controller
             activity()
             ->causedBy($user)
             ->performedOn($product)
-            ->log('New Product Edited.');
+            ->log('تحديث منتج');
         }
 
-        return response()->json(['message' => 'Product Updated Successfully', 'product' => $product]);
+        return response()->json(['message' => 'تم تحديث المنتج بنجاح', 'product' => $product]);
     }
 }

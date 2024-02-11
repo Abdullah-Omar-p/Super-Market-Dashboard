@@ -4,8 +4,8 @@ namespace App\Http\Controllers\Product;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Http\Models\Product;
-use App\Http\Middleware\AuthenticatedUser;
+use App\Models\Product;
+use App\Middleware\AuthenticatedUser;
 
 class DeleteProductController extends Controller
 {
@@ -14,6 +14,10 @@ class DeleteProductController extends Controller
         $request->validate([
             'product_id' => 'required|exists:products,id',
         ]);
+
+        if ($validatedData->fails()) {
+            return $validatedData->errors();
+        }
 
         $product = Product::find($request->product_id);
 
@@ -30,9 +34,9 @@ class DeleteProductController extends Controller
             activity()
             ->causedBy($user)
             ->performedOn($product)
-            ->log('New Product Deleted.');
+            ->log('تم حذف منتج');
         }
 
-        return response()->json(['message' => 'Product deleted successfully']);
+        return response()->json(['message' => 'تم حذف المنتج بنجاح']);
     }
 }

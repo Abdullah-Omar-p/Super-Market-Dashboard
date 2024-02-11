@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use Spatie\Activitylog\Traits\LogsActivity;
 use Spatie\Activitylog\LogOptions;
 
-class debt extends Model
+class Debt extends Model
 {
     use HasFactory, LogsActivity;
 

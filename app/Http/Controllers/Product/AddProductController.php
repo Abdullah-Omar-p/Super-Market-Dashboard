@@ -4,8 +4,8 @@ namespace App\Http\Controllers\Product;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Http\Models\{Product, User};
-use App\Http\Middleware\AuthenticatedUser;
+use App\Models\{Product, User};
+use App\Middleware\AuthenticatedUser;
 
 class AddProductController extends Controller
 {
@@ -42,13 +42,13 @@ class AddProductController extends Controller
             activity()
             ->causedBy($user)
             ->performedOn($product)
-            ->log('New product added');
+            ->log('تم اضافة منتج جديد');
         }
 
         // Return a success response
         return response()->json([
-            'status' => 'success',
-            'message' => 'Product created successfully',
+            'status' => 'عملية ناجحة',
+            'message' => 'تم اضافة المنتج بنجاح',
             'product' => $product,
         ]);
     }

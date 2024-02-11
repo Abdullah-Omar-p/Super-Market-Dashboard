@@ -24,7 +24,6 @@ class MakeOrderController extends Controller
                 'total_price' => 'nullable|integer',
                 'no_pices' => 'nullable|integer',
                 'product_ids.*' => 'exists:products,id',
-                'print_receipt' => 'nullable|in:1,0', // if 1 yes if 0 no 
             ]);
 
             // .. Calculate Total Price For Order ..
@@ -59,10 +58,8 @@ class MakeOrderController extends Controller
             $order->products()->attach($validatedData['product_ids']);
 
             // .. Get All Products Of The Order , Select name,price,availablepices ..
-            if ($request->has('print_receipt') && $request->print_receipt) {
-                $products = Product::whereIn('id', $productsIds)->get(['name', 'price', 'available_pices']);
+            $products = Product::whereIn('id', $productsIds)->get(['name', 'price', 'available_pices']);
             $responseData ['products'] = $products;
-            }
             // .. Add total Price To Response ..
             $responseData ['total-price'] = $total_price;
             // .. Add number of pices To Response ..

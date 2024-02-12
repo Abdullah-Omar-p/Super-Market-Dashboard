@@ -1,4 +1,4 @@
-# * [SuperMarketDashboard Project - API Documentation](#)
+# [SuperMarketDashboard Project - API Documentation](#)
 
 
 # ``Authentication Endpoints``

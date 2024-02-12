@@ -231,7 +231,7 @@ Returns a JSON object containing warning messages for products with available pi
 
 ## ``Statistics Endpoints``
 
-###  * [Get Daily Statistics](#)
+###[Get Daily Statistics](#)
 **URL**: /statistics/daily <br>
 **Method**: GET <br>
 **Description**: Get total earnings and total number of sold products for the current day. <br>

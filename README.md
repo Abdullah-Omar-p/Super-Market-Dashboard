@@ -41,7 +41,7 @@ Returns a success message upon successful logout. <br>
 
 
 
-## ``Activities Endpoints``
+# ``Activities Endpoints``
 
 ### * [Get All Activities](#)
 **URL**: /activities <br>

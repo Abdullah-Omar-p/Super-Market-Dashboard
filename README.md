@@ -11,6 +11,9 @@
 - **Telegram:** [@abdullahomar_p](https://t.me/abdullahomar_p)
 
 
+# ``Description Summury``
+#### This is a super market system to calculate daily orders by barcodes and calculate debts for owner and print receipt of every order if needed , and it contains statistics part of all products and orders , and have part for Activities Contains all Activities Happen For Each Day.
+
 # ``Authentication Endpoints``
 ### - [Register](#)
 **``URL``**: /auth/register <br>

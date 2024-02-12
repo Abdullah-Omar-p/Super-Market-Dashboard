@@ -20,7 +20,7 @@
 **``name``**: name <br>
 **``email``**: email <br>
 **``password``**: password <br>
-**``Confirm Password``**: password_confirmation <br>
+**``password_confirmation``**: Confirm Password <br>
 
 #### Response:
 Returns a success message if registration is successful. <br>

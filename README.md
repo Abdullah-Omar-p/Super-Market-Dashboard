@@ -73,16 +73,33 @@ Response: Returns a success message upon successful logout. <br>
 - **debt_id**: ID of the debt to be deleted <br>
 **Response**: Returns a success message if the debt is deleted successfully.
 
-### Update Debt
-**URL**: /dubt/update/{debt} <br>
+### Update Debt (Decrement)
+**URL**: /dubt/update-decrement/{increment_or_decrement?} <br>
 **Method**: POST <br>
-**Description**: Update a debt by its ID. <br>
-#### Request Body:
-- **status**: Status of the debt (1 or 0) <br>
-- **name**: Name of the debtor <br>
-- **liability**: Amount of liability <br>
-- **phone**: Phone number of the debtor <br>
-**Response**: Returns a success message and the updated debt object if the update is successful.
+**Description**: Update a debt record by decrementing the liability. <br>
+**Request Body:** <br>
+- **id**: Debt ID (required)
+- **status**: Status (required, 1 or 0)
+- **name**: Name (required)
+- **increment_or_decrement**: Increment or Decrement (required, 1 for decrement)
+- **money**: Amount of money to decrement (required)
+- **phone**: Phone number (required)
+
+**Response**: Returns the updated debt record if successful. <br>
+
+### Update Debt (Increment)
+**URL**: /dubt/update-increment/{increment_or_decrement?} <br>
+**Method**: POST <br>
+**Description**: Update a debt record by incrementing the liability. <br>
+**Request Body:** <br>
+- **id**: Debt ID (required)
+- **status**: Status (required, 1 or 0)
+- **name**: Name (required)
+- **increment_or_decrement**: Increment or Decrement (required, 0 for increment)
+- **money**: Amount of money to increment (required)
+- **phone**: Phone number (required)
+
+**Response**: Returns the updated debt record if successful. <br>
 
 ### Get Debts
 **URL**: /dubt/for-you/{status?} or /dubt/for-others/{status?} <br>

@@ -36,7 +36,8 @@ Route::middleware([AuthenticatedUser::class])->group(function () {
     });
     Route::prefix('dubt')->namespace('App\Http\Controllers\DubtControllers')->group(function () {
         Route::post('/add', 'AddLiabilityController@index');
-        Route::post('/update', 'EditDubtController@index');
+        Route::post('/update-decrement/{increment_or_decrement?}', 'EditDubtController@index')->where('increment_or_decrement', 1);
+        Route::post('/update-increment/{increment_or_decrement?}', 'EditDubtController@index')->where('increment_or_decrement', 0);
         Route::post('/delete', 'DeleteDubtController@index');
         Route::get('/for-you/{status?}', 'GetDubtController@index')->where('status', 1);
         Route::get('/for-others/{status?}', 'GetDubtController@index')->where('status', 0);

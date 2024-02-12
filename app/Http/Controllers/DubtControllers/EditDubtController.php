@@ -8,13 +8,15 @@ use App\Models\{Debt, User};
 
 class EditDubtController extends Controller
 {
-    public function update(Request $request, Debt $debt)
+    public function update(Request $request)
     {
         // Validate the request data
         $validatedData = $request->validate([
+            'id' => 'required|exists:debts,id',
             'status' => 'required|in:1,0',
             'name' => 'required|string|max:255',
-            'liability' => 'required|integer|min:0',
+            'increment_or_decrement' => 'required|integer|in:1,0',
+            'money' => 'required|integer|min:0',
             'phone' => 'required|string|max:20',
         ]);
 
@@ -22,10 +24,26 @@ class EditDubtController extends Controller
             return $validatedData->errors();
         }
 
-        try {
-            // Update the debt record
-            $debt->update($validatedData);
+        $debt = Debt::find($request->id);
+
+        if ($request->increment_or_decrement == 1) {
             
+            $newLiability = $debt->liability - $request->money ;
+
+        }elseif ($request->increment_or_decrement == 0) {
+
+            $newLiability = $debt->liability + $request->money ;
+        }
+
+        try {
+
+            $debt->status = $validatedData['status'];
+            $debt->name = $validatedData['name'];
+            $debt->liability = $newLiability;
+            $debt->phone = $validatedData['phone'];
+        
+            $debt->save();   
+
             $user = auth()->user();
 
 

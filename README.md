@@ -1,7 +1,7 @@
 # SuperMarketDashboard Project - API Documentation 
 
 
-## ``Authentication Endpoints``
+# ``Authentication Endpoints``
 ### * [Register](#)
 **``URL``**: /auth/register <br>
 **``Method``**: POST <br>
@@ -55,7 +55,7 @@ Returns a success message upon successful logout. <br>
 
 
 
-## ``Debt Endpoints``
+# ``Debt Endpoints``
 
 ### * [Add New Debt](#)
 **``URL``**: /dubt/add <br>
@@ -126,7 +126,7 @@ Returns a JSON array containing the debts that match the specified status.
 
 
 
-## ``Order Endpoints``
+# ``Order Endpoints``
 
 ### * [Make Order](#)
 **``URL``**: /order <br>
@@ -150,7 +150,7 @@ Returns a JSON object containing the following:
 
 
 
-## ``Product Endpoints``
+# ``Product Endpoints``
 
 ### * [Add Product](#)
 **``URL``**: /product/add <br>
@@ -236,7 +236,7 @@ Returns a JSON object containing warning messages for products with available pi
 
 
 
-## ``Statistics Endpoints``
+# ``Statistics Endpoints``
 
 ### * [Get Daily Statistics](#)
 **``URL``**: /statistics/daily <br>

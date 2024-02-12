@@ -3,7 +3,7 @@
 
 ## ``Authentication Endpoints``
 ### * [Register](#)
-**URL**: /auth/register <br>
+**``URL``**: /auth/register <br>
 **Method**: POST <br>
 **Description**: Register a new user. <br>
 **Request Body:** <br>

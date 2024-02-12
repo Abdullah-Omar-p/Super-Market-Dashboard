@@ -41,5 +41,5 @@ class EditDubtController extends Controller
             // Handle any errors that occur during debt update
             return response()->json(['message' => 'Error updating debt', 'error' => $e->getMessage()], 500);
         }
-    }
+    }    
 }

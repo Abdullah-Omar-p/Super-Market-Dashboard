@@ -13,8 +13,8 @@ class UpdateQuestionController extends Controller
         $validatedData = $request->validate([
             'id' => 'required|exists:questions,id',
             'title' => 'required|string',
-            'question' => 'required|string',
-            'answer' => 'required|string|max:5000',
+            'question' => 'required|string|max:5000',
+            'answer' => 'nullable|string|max:5000',
             'category_id' => 'required|exists:categories,id',
             'user_id' => 'required|exists:users,id',
             'answered_by' => 'required|exists:users,id',

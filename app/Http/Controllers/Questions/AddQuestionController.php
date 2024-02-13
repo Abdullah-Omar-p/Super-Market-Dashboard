@@ -13,7 +13,7 @@ class AddQuestionController extends Controller
         $validatedData = $request->validate([
             'title' => 'required|string',
             'question' => 'required|string',
-            'answer' => 'required|string|max:5000',
+            'answer' => 'nullable|string|max:5000',
             'category_id' => 'required|exists:categories,id',
             'user_id' => 'required|exists:users,id',
             'answered_by' => 'required|exists:users,id',
@@ -26,7 +26,7 @@ class AddQuestionController extends Controller
         $question = new Question;
         $question->title = $request->title;
         $question->question = $request->question;
-        $question->answer = $request->answer;
+        $question->answer = $request->answer ?? null;
         $question->user_id = $request->user_id;
         $question->answered_by = $request->answered_by;
 

@@ -1,0 +1,45 @@
+<?php
+
+namespace App\Http\Controllers\Questions;
+
+use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
+use App\Models\Question;
+
+class UpdateQuestionController extends Controller
+{
+    public function index(Request $request)
+    {
+        $validatedData = $request->validate([
+            'title' => 'required|string',
+            'question' => 'required|unique:products|string',
+            'answer' => 'required|string|max:5000',
+            'category_id' => 'required|exists:categories,id',
+            'user_id' => 'required|exists:users,id',
+            'answered_by' => 'required|exists:users,id',
+        ]);
+        
+        if ($validatedData->fails()) {
+            return $validatedData->errors();
+        }
+
+        $updateQuestion = Question::Update([$validatedData]);
+
+        if (!$updateQuestion) {
+            return response()->json(['message' => 'Error While Edit Question. Try Again Later.']);
+        }
+
+        $user = auth()->user();
+
+
+        if ($updateQuestion) {
+            activity()
+            ->causedBy($user)
+            ->performedOn($updateQuestion)
+            ->log('New Question Updated.');
+        }
+
+        return response()->json(['message' => 'Question Updated Successfully.', 'question' => $product]);
+
+    }
+}

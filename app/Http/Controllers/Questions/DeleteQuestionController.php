@@ -11,7 +11,7 @@ class DeleteQuestionController extends Controller
     public function delete(Request $request)
     {
         $validatedData = $request->validate([
-            'question_id' => 'required|exists:debts,id',
+            'question_id' => 'required|exists:questions,id',
         ]);
 
         if ($validatedData->fails()) {

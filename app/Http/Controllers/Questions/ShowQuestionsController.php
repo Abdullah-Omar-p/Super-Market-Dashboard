@@ -19,7 +19,7 @@ class ShowQuestionsController extends Controller
                 return response()->json(['message' => 'No Questions Found']);
             }
     
-            return response()->json($question);
+            return response()->json(['Questions'=>$question]);
         } catch (\Exception $e) {
             return response()->json(['error' => 'An Error Occurred While Fetching Questions']);
         }

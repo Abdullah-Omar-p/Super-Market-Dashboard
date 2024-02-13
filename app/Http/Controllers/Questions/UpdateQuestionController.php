@@ -24,7 +24,7 @@ class UpdateQuestionController extends Controller
             return $validatedData->errors();
         }
 
-        $updateQuestion = Question::findOrFail($request->id);
+        $updateQuestion = Question::find($request->id);
 
         $updateQuestion->update($validatedData);
 

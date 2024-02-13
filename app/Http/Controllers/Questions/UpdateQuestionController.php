@@ -26,7 +26,6 @@ class UpdateQuestionController extends Controller
 
         $question = Question::findOrFail($request->id);
 
-        // Update the question attributes
         $question->update($validatedData);
 
         $user = auth()->user();

@@ -11,6 +11,7 @@ class UpdateQuestionController extends Controller
     public function index(Request $request)
     {
         $validatedData = $request->validate([
+            'id' => 'required|exists:questions,id',
             'title' => 'required|string',
             'question' => 'required|string',
             'answer' => 'required|string|max:5000',
@@ -23,11 +24,10 @@ class UpdateQuestionController extends Controller
             return $validatedData->errors();
         }
 
-        $updateQuestion = Question::Update([$validatedData]);
+        $question = Question::findOrFail($request->id);
 
-        if (!$updateQuestion) {
-            return response()->json(['message' => 'Error While Edit Question. Try Again Later.']);
-        }
+        // Update the question attributes
+        $question->update($validatedData);
 
         $user = auth()->user();
 

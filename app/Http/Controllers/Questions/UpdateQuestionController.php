@@ -24,9 +24,9 @@ class UpdateQuestionController extends Controller
             return $validatedData->errors();
         }
 
-        $question = Question::findOrFail($request->id);
+        $updateQuestion = Question::findOrFail($request->id);
 
-        $question->update($validatedData);
+        $updateQuestion->update($validatedData);
 
         $user = auth()->user();
 
@@ -38,7 +38,7 @@ class UpdateQuestionController extends Controller
             ->log('New Question Updated.');
         }
 
-        return response()->json(['message' => 'Question Updated Successfully.', 'question' => $question]);
+        return response()->json(['message' => 'Question Updated Successfully.', 'question' => $updateQuestion]);
 
     }
 }

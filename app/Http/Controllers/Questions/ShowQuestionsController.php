@@ -16,12 +16,21 @@ class ShowQuestionsController extends Controller
             $question->appends($request->query());
     
             if ($question->isEmpty()) {
-                return response()->json(['message' => 'No Questions Found']);
+                return response()->json([
+                    'message' => 'No Questions Found',
+                    'status' => 'Success',
+                ]);
             }
     
-            return response()->json(['Questions'=>$question]);
+            return response()->json([
+                'status' => 'Success',
+                'Questions'=>$question
+            ]);
         } catch (\Exception $e) {
-            return response()->json(['error' => 'An Error Occurred While Fetching Questions']);
+            return response()->json([
+                'error' => 'An Error Occurred While Fetching Questions',
+                'status' => 'Failed',
+            ]);
         }
     }
 }

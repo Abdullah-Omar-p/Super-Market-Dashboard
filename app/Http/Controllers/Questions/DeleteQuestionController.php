@@ -8,7 +8,7 @@ use App\Models\Question;
 
 class DeleteQuestionController extends Controller
 {
-    public function delete(Request $request)
+    public function index(Request $request)
     {
         $validatedData = $request->validate([
             'question_id' => 'required|exists:questions,id',

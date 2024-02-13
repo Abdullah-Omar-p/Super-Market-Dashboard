@@ -38,7 +38,7 @@ class UpdateQuestionController extends Controller
             ->log('New Question Updated.');
         }
 
-        return response()->json(['message' => 'Question Updated Successfully.', 'question' => $product]);
+        return response()->json(['message' => 'Question Updated Successfully.', 'question' => $question]);
 
     }
 }
